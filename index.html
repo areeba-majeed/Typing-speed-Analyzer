@@ -1,0 +1,310 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Analyzer</title>
+    <meta name="google-site-verification" content="JWjv4qK0iE1abc1Smz9wNfYoF8hRG9wbmqxMOckjSkQ" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f0a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(87, 0, 87, 0.2) 0%, rgba(17, 0, 17, 0.9) 90%);
+        }
+        
+        h1, h2, h3 {
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: rgba(30, 15, 45, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+        }
+        
+        #sec1 {
+            text-align: center;
+            border: 1px solid #4a2a7a;
+        }
+        
+        #sec1 h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #c792ea;
+            text-shadow: 0 0 10px rgba(199, 146, 234, 0.3);
+            padding: 15px;
+            background-color: rgba(74, 42, 122, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #sec1 h1:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 0 15px rgba(199, 146, 234, 0.5);
+        }
+        
+        #sec1 h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #82aaff;
+            padding: 10px;
+            background-color: rgba(74, 42, 122, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        #sec1 h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #89ddff;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 69, 226, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(110, 69, 226, 0.5);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        #b {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
+        }
+        
+        #b:hover {
+            box-shadow: 0 8px 20px rgba(255, 117, 140, 0.5);
+        }
+        
+        textarea {
+            background-color: rgba(40, 25, 60, 0.7);
+            border: 1px solid #4a2a7a;
+            color: #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 700px;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #6e45e2;
+            box-shadow: 0 0 10px rgba(110, 69, 226, 0.5);
+        }
+        
+        #counter, #score, #error {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        #counter {
+            background-color: rgba(74, 42, 122, 0.3);
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        #score {
+            color: #89ddff;
+            background-color: rgba(74, 42, 122, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        #error {
+            color: #ff758c;
+        }
+        
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #c792ea;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 20px;
+            }
+            
+            textarea {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML content remains the same -->
+    <h1 style="text-align: center;">Typing Speed Analyzer</h1>
+    <section id="sec1">
+        <h1>Enhance Your Typing Speed</h1>
+        <h2>You Write, We Count</h2>
+        <h3>Let's Start</h3>
+       <div style="display: flex; justify-content: center; transition: all 0.3s ease;">
+  <button id="b">Click Me</button>
+</div>
+    </section>
+    <section id="sec2">
+        <h2>Random Paragraph: </h2>
+        <textarea id="para" rows="10" cols="70" placeholder="Write something here..."></textarea><br><br>
+        <label for="paragraph"><b>Enter the above paragraph:</b></label><br><br>
+        <textarea id="paragraph" rows="10" cols="70" placeholder="Write something here..."></textarea>
+        <br><br>
+        <button id="click">start counter</button>
+        <button id="stop">Stop Counter</button>
+        <p id="counter"></p>
+        <button id="speed">Get your Typing speed</button>
+        <h1 id="score" style="font-size: 20px;"></h1>
+        <p id="error"></p>
+        <button id="Home">Go to Homepage</button>
+    </section>
+
+    
+    <script>
+let arr = []
+let count = 0
+let timer;
+let typed = "";
+
+makeNull();
+
+document.getElementById('sec1').style.display = "block";
+document.getElementById('sec2').style.display = "none";
+document.getElementById("paragraph").disabled = true; // Initially disabled
+
+document.getElementById("b").addEventListener("click", function(e) {
+    if (e.target.id == 'b') {
+        document.getElementById('sec1').style.display = "none";
+        document.getElementById('sec2').style.display = "block";
+    }
+});
+
+async function getLines() {
+    try {
+        for (let i = 1; i <= 5; i++) {
+            let response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
+            let data = await response.json();
+            arr[i] = data.text;
+        }
+        document.getElementById('para').innerHTML = arr.join(' ');
+    } catch (error) {
+        console.log("Something went wrong:", error);
+    }
+}
+
+getLines();
+
+document.getElementById('click').addEventListener("click", function() {
+    if (!timer) {
+        timer = setInterval(function() {
+            count++;
+            document.getElementById("counter").textContent = `counter: ${count}`;
+        }, 1000);
+
+        document.getElementById("paragraph").disabled = false; // Enable textarea
+        document.getElementById("error").innerHTML = ""; // clear any error
+    }
+});
+
+document.getElementById('stop').addEventListener("click", function() {
+    clearInterval(timer);
+    timer = null;
+
+});
+
+document.getElementById("paragraph").addEventListener("input", function() {
+    let expected = arr.join(' ');
+    typed = this.value;
+    let mismatch = false;
+
+    for (let i = 0; i < typed.length; i++) {
+        if (typed[i] !== expected[i]) {
+            mismatch = true;
+            break;
+        }
+    }
+
+    this.style.color == mismatch ? 'red' : 'white'; // fix: = not ==
+});
+
+document.getElementById("speed").addEventListener("click", function(e) {
+    if (!count) {
+        document.getElementById("error").innerHTML = "Counter is Null";
+        return;
+    }
+    if (timer) {
+    document.getElementById("error").innerHTML = "Stop the timer first to get your typing speed.";
+    return;
+}
+
+
+    if (!typed || !typed.trim()) {
+        document.getElementById("error").innerHTML = " ";
+        document.getElementById("score").innerHTML = "No word typed";
+        return;
+    }
+document.getElementById("error").innerHTML = " ";
+    let words = typed.trim().split(/\s+/).length;
+    let min = Math.floor(count / 60);
+    let seconds = count % 60;
+
+    document.getElementById("score").innerHTML = `
+        Typing Speed: ${words} words in ${min}m:${seconds.toFixed(2)}s`;
+});
+
+function makeNull() {
+    document.getElementById("score").innerHTML = " ";
+}
+
+document.getElementById("Home").addEventListener("click", function(e) {
+    if (e.target.id == "Home") {
+        clearInterval(timer);
+        timer = null;
+        count = 0;
+
+        document.getElementById("score").innerHTML = "";
+        document.getElementById("error").innerHTML = "";
+        document.getElementById("counter").innerHTML = "";
+        document.getElementById("paragraph").value = "";
+        document.getElementById("paragraph").disabled = true; // disable again on home
+        typed = "";
+
+        document.getElementById('sec1').style.display = "block";
+        document.getElementById('sec2').style.display = "none";
+    }
+});
+</script>
+</body>
+</html>
